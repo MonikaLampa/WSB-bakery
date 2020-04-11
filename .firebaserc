@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "wsb-cukiernia": {
+      "hosting": {
+        "bakery": [
+          "wsb-cukiernia"
+        ]
+      }
+    }
+  }
+}

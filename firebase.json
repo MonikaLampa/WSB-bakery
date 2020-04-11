@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "bakery",
+      "public": "dist/bakery",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
