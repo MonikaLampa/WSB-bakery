@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import {AngularFireModule} from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { MainComponent } from './main/main.component';
+import { ProductsModule } from './products/products.module';
 //import 'firebase/database'
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MainComponent } from './main/main.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    //ProductsModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
