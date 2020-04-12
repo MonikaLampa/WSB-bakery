@@ -1,0 +1,12 @@
+.main-card {
+    max-width: 300px;
+    margin: 20px;
+  }
+  .example-header-image {
+    background-image: url('/assets/logo.png');
+    background-size: cover;
+  }
+  .mainDiv{
+      max-width: 800px;
+      display: flex;
+  }

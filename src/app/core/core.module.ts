@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { MatToolbarModule} from '@angular/material/toolbar';
+import { MaterialModule } from '../material/material.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 @NgModule({
-  declarations: [ToolbarComponent],
+  declarations: [ToolbarComponent, NavBarComponent],
   imports: [
     CommonModule,
-    MatToolbarModule
+    MaterialModule
+    
   ],
   exports:[
-    ToolbarComponent
+    ToolbarComponent,
+    MaterialModule   
   ]
 })
 export class CoreModule { }
