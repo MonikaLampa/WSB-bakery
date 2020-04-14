@@ -1,1 +1,14 @@
-<p>cake-list works!</p>
+<div *ngIf="cakes; then fullList else emptyList"></div>
+<ng-template #emptyList>
+    <div style="height: 200px">
+        <h3>Ładowanie..... </h3>
+    </div>
+</ng-template>
+
+<ng-template #fullList>
+<div class="col-sm-8" *ngFor="let cake of cakes" >
+    <app-cake-card [cake] = "cake"></app-cake-card>  
+</div>
+</ng-template>
+<button mat-raised-button color="primary" class="buttonAddCake">Dodaj</button>
+

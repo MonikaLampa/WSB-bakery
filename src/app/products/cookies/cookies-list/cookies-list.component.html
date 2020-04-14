@@ -1,1 +1,3 @@
-<p>cookies-list works!</p>
+<div class="row" *ngFor="let cookie of cookies">
+    <app-cookie-card [cookie] = "cookie"></app-cookie-card>  
+  </div>

@@ -8,6 +8,7 @@ import {AngularFireModule} from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { MainComponent } from './main/main.component';
 import { ProductsModule } from './products/products.module';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 //import 'firebase/database'
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductsModule } from './products/products.module';
     BrowserAnimationsModule,
     CoreModule,
     //ProductsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

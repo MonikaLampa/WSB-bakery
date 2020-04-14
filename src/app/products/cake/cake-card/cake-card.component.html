@@ -1,0 +1,18 @@
+
+<div class="card mb-3" style="max-width: 740px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{ cake.image }}" class="card-img" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{cake.name}}</h5>
+                <p class="card-text">{{cake.description}}</p>
+                <p class="card-text">Cena : {{cake.price}} PLN</p>
+                <p class="card-text">Masa : {{cake.mass}} dag</p>
+                <p>{{cake.key}}</p>
+               <button mat-raised-button color="primary" (click)="openDeleteDialog(cake)">Usuń</button>
+            </div>
+        </div>
+    </div>
+</div>

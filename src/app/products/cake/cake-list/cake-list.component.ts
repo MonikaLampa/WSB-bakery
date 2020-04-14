@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CakeService } from '../cake.service';
+import { Cake } from '../model';
 
 @Component({
   selector: 'app-cake-list',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CakeListComponent implements OnInit {
 
-  constructor() { }
+  cake: Cake = null;
+  cakes: Cake[];
+
+
+  constructor(private cakeService: CakeService) { }
 
   ngOnInit(): void {
+    this.refreshCakeList();   
   }
-
+  
+  private refreshCakeList() {
+    this.cakeService.getCakes().subscribe((response) => {
+      this.cakes = response;
+      this.cake = this.cakes[0];
+    });
+  }
 }
