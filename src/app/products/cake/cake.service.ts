@@ -23,8 +23,8 @@ export class CakeService {
   deleteCake(cake : Cake){
     return this.angFireDatabase.list<Cake>(this.API_URL).remove(cake.key);
   }
-  // addCiastka(ciastko: Ciastka) {
-  //   return this.db.list<Ciastka>(this.API_URL).push(ciastko);
-  //  }
+  addCake(cake: Cake) {
+    return this.angFireDatabase.list<Cake>(this.API_URL).push(cake);
+   }
 
 }

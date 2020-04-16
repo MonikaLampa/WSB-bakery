@@ -11,7 +11,6 @@ import { Cake } from '../model';
 })
 export class CakeDelDialogComponent implements OnInit {
 
- // cake : Cake;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Cake,
     private toast: MatSnackBar,
@@ -19,18 +18,16 @@ export class CakeDelDialogComponent implements OnInit {
     private cakeService : CakeService) { }
 
   ngOnInit(): void {
-   // this.cake = this.data;
   }
 
   deleteCake(){
-    
     this.cakeService.deleteCake(this.data)
     .then(this.onCreatingSuccess.bind(this), this.onCreatingFailure.bind(this));
     }
   
   private onCreatingSuccess() {
     this.dialogRef.close();
-    this.toast.open('Ciasatko zostało usunięte !', '', { panelClass: 'toast-success'});
+    this.toast.open('Produkt został usunięty !', '', { panelClass: 'toast-success'});
   }
 
   private onCreatingFailure(error) {

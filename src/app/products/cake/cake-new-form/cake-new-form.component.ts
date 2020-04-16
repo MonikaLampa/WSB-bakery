@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Cake } from '../model';
+import { CakeService } from '../cake.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cake-new-form',
@@ -8,18 +10,42 @@ import { Cake } from '../model';
 })
 export class CakeNewFormComponent implements OnInit {
 
-  cake : Cake;
-  submitted : boolean = false;
-  constructor() { }
+  @Output() savedCake = new EventEmitter<string>(); //zapisano formularz
+
+  description: string = "";
+  image: string = "";
+  mass: number;
+  name: string;
+  price: number;
+  headerTitle : string = "Dodaj nowy tort"
+
+  constructor(
+    private cakeService: CakeService,
+    private toast: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
   }
-  newCustomer(){
+ 
+  saveNewCake() {
 
+    this.cakeService.addCake({
+      name: this.name,
+      description: this.description,
+      image: this.image,
+      mass: this.mass,
+      price: this.price,
+    }).then(this.onCreatingSuccess.bind(this), this.onCreatingFailure.bind(this));
+
+    this.savedCake.emit('closeDialog');
   }
-  onSubmit() {
-    this.submitted = true;
-    //this.save();
-  }
+
+    private onCreatingSuccess() {
+      this.toast.open('Tort został dodany !', '', { panelClass: 'toast-success'});
+    }
+  
+    private onCreatingFailure(error) {
+      this.toast.open(error.message, '', { panelClass: 'toast-error'});
+    }
 
 }

@@ -9,14 +9,17 @@ import { CookiesService } from './cookies/cookies.service';
 import { CoreModule } from '../core/core.module';
 import { CakeDelDialogComponent } from './cake/cake-del-dialog/cake-del-dialog.component';
 import { CakeNewFormComponent } from './cake/cake-new-form/cake-new-form.component';
+import { CakeNewDialogComponent } from './cake/cake-new-dialog/cake-new-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [CakeListComponent, CookiesListComponent, CakeCardComponent, CookieCardComponent, CakeDelDialogComponent, CakeNewFormComponent],
+  declarations: [CakeListComponent, CookiesListComponent, CakeCardComponent, CookieCardComponent, CakeDelDialogComponent, CakeNewFormComponent, CakeNewDialogComponent],
   imports: [
     CommonModule,
-    CoreModule 
+    CoreModule,
+    FormsModule 
   ],
   providers:[
     CakeService,

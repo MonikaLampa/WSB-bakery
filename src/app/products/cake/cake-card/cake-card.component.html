@@ -10,8 +10,8 @@
                 <p class="card-text">{{cake.description}}</p>
                 <p class="card-text">Cena : {{cake.price}} PLN</p>
                 <p class="card-text">Masa : {{cake.mass}} dag</p>
-                <p>{{cake.key}}</p>
                <button mat-raised-button color="primary" (click)="openDeleteDialog(cake)">Usuń</button>
+               <button mat-raised-button color="primary" (click)="openUpdateDialog(cake)">Edytuj</button>
             </div>
         </div>
     </div>

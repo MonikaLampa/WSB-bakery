@@ -1,7 +1,7 @@
 <div *ngIf="cakes; then fullList else emptyList"></div>
 <ng-template #emptyList>
     <div style="height: 200px">
-        <h3>Ładowanie..... </h3>
+        <h3>Ładowanie danych ..... </h3>
     </div>
 </ng-template>
 
@@ -10,5 +10,5 @@
     <app-cake-card [cake] = "cake"></app-cake-card>  
 </div>
 </ng-template>
-<button mat-raised-button color="primary" class="buttonAddCake">Dodaj</button>
+<button mat-raised-button color="primary" class="buttonAddCake" (click)="openNewCakeDialog()"> + Dodaj</button>
 
