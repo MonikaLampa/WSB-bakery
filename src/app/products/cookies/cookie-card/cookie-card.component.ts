@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Cookie } from "../model";
 import { MatDialog } from "@angular/material/dialog";
-import { CookieDelDialogComponent } from '../cookie-del-dialog/cookie-del-dialog.component';
-import { CookieFormComponent } from '../cookie-form/cookie-form.component';
+import { CookieDelDialogComponent } from "../cookie-del-dialog/cookie-del-dialog.component";
+import { CookieFormComponent } from "../cookie-form/cookie-form.component";
+import { AuthService } from "src/app/core/auth.service";
 
 @Component({
   selector: "app-cookie-card",
@@ -12,7 +13,7 @@ import { CookieFormComponent } from '../cookie-form/cookie-form.component';
 export class CookieCardComponent implements OnInit {
   @Input() cookie: Cookie;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -26,5 +27,8 @@ export class CookieCardComponent implements OnInit {
     this.dialog.open(CookieFormComponent, {
       data: cookie,
     });
+  }
+  checkAuthorization() {
+    return this.authService.getLogged();
   }
 }

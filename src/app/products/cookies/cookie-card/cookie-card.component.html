@@ -11,10 +11,10 @@
                 <p class="card-text"><b>Cena :</b> {{cookie.price}} PLN / kg</p>
                 <div class="row">
                     <div class="cell d-inline p-2">
-                        <button mat-raised-button color="warn" (click)="openDeleteDialog(cookie)">Usuń</button>
+                        <button mat-raised-button color="warn" (click)="openDeleteDialog(cookie)" [disabled]="!checkAuthorization()">Usuń</button>
                     </div>
                     <div class="cell d-inline p-2">
-                        <button mat-raised-button color="primary" (click)="openUpdateDialog(cookie)">Edytuj</button>
+                        <button mat-raised-button color="primary" (click)="openUpdateDialog(cookie)" [disabled]="!checkAuthorization()">Edytuj</button>
                     </div>
                   </div>
             </div>

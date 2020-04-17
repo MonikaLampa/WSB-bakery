@@ -7,7 +7,7 @@ import { MatDialogModule, MatDialogConfig, MAT_DIALOG_DEFAULT_OPTIONS} from '@an
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-//import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 const MAT_SNACK_BAR_GLOBAL_CONFIG: MatSnackBarConfig = {
   duration: 2500,
   verticalPosition: 'bottom',
@@ -30,7 +30,8 @@ const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig= {
     MatDialogModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   exports: [
     MatToolbarModule,
@@ -39,7 +40,8 @@ const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig= {
     MatDialogModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers:[
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: MAT_DIALOG_GLOBAL_CONFIG},

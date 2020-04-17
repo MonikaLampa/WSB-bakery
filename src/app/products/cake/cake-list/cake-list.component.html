@@ -10,5 +10,5 @@
     <app-cake-card [cake] = "cake"></app-cake-card>  
 </div>
 </ng-template>
-<button mat-raised-button color="primary" class="buttonAddCake" (click)="openNewCakeDialog()"> + Dodaj</button>
+<button mat-raised-button color="primary" class="buttonAddCake" (click)="openNewCakeDialog()" [disabled]="!checkAuthorization()"> + Dodaj</button>
 

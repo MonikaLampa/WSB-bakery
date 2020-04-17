@@ -10,4 +10,4 @@
     <app-cookie-card [cookie] = "cookie"></app-cookie-card>  
   </div>
 </ng-template>
-<button mat-raised-button color="primary" class="buttonAdd" (click)="openCookieForm()"> + Dodaj</button> 
+<button mat-raised-button color="primary" class="buttonAdd" (click)="openCookieForm()" [disabled]="!checkAuthorization()"> + Dodaj</button> 

@@ -12,10 +12,10 @@
                 <p class="card-text"><b>Masa :</b> {{cake.mass}} dag</p>
                 <div class="row">
                     <div class="cell d-inline p-2">
-                        <button mat-raised-button color="warn" (click)="openDeleteDialog(cake)">Usuń</button>
+                        <button mat-raised-button color="warn" (click)="openDeleteDialog(cake)" [disabled]="!checkAuthorization()">Usuń</button>
                     </div>
                     <div class="cell d-inline p-2">
-                        <button mat-raised-button color="primary" (click)="openUpdateDialog(cake)">Edytuj</button>
+                        <button mat-raised-button color="primary" (click)="openUpdateDialog(cake)" [disabled]="!checkAuthorization()">Edytuj</button>
                     </div>
                   </div>
             </div>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand">Cukiernia</a>
+  <a class="navbar-brand">Cukiernia "Czekoladka"</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
@@ -13,5 +13,7 @@
         <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cake">Torty</a>
       </li>
     </ul>
+    <button  mat-raised-button color="basic" *ngIf="!isLogin" class="mybtn" (click)="login()"> Zaloguj</button>
+    <button  mat-raised-button color="basic" *ngIf="isLogin" class="mybtn" (click)="logout()"> Wyloguj</button>
   </div>
 </nav>

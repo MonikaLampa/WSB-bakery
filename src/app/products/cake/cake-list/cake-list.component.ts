@@ -3,6 +3,7 @@ import { CakeService } from '../cake.service';
 import { Cake } from '../model';
 import { MatDialog } from '@angular/material/dialog';
 import { CakeFormComponent } from '../cake-form/cake-form.component';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-cake-list',
@@ -16,7 +17,8 @@ export class CakeListComponent implements OnInit {
 
   constructor(
     private cakeService: CakeService,
-    private dialog : MatDialog) { }
+    private dialog : MatDialog,
+    private authService : AuthService) { }
 
   ngOnInit(): void {
     this.refreshCakeList();   
@@ -32,5 +34,8 @@ export class CakeListComponent implements OnInit {
     this.dialog.open(CakeFormComponent,{
       data : {}
     });
+  }
+  checkAuthorization(){
+    return this.authService.getLogged();
   }
 }
