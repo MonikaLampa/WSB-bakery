@@ -1,3 +1,13 @@
-<div class="row" *ngFor="let cookie of cookies">
+<div *ngIf="cookies; then fullList else emptyList"></div>
+<ng-template #emptyList>
+    <div style="height: 200px">
+        <h3>Ładowanie danych ..... </h3>
+    </div>
+</ng-template>
+
+<ng-template #fullList>
+<div class="col-sm-10" *ngFor="let cookie of cookies">
     <app-cookie-card [cookie] = "cookie"></app-cookie-card>  
   </div>
+</ng-template>
+<button mat-raised-button color="primary" class="buttonAdd" (click)="openCookieForm()"> + Dodaj</button> 

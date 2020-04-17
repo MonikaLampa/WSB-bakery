@@ -1,0 +1,12 @@
+.cookie-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+.field-full-width {
+    width: 100%;
+  }
+  h3{
+    font-size: large;
+      font-weight: bold;
+  }

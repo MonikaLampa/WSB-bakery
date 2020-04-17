@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CakeNewDialogComponent } from './cake-new-dialog.component';
+import { CookieDelDialogComponent } from './cookie-del-dialog.component';
 
-describe('CakeNewDialogComponent', () => {
-  let component: CakeNewDialogComponent;
-  let fixture: ComponentFixture<CakeNewDialogComponent>;
+describe('CookieDelDialogComponent', () => {
+  let component: CookieDelDialogComponent;
+  let fixture: ComponentFixture<CookieDelDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CakeNewDialogComponent ]
+      declarations: [ CookieDelDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CakeNewDialogComponent);
+    fixture = TestBed.createComponent(CookieDelDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

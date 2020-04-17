@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CakeService } from '../cake.service';
 import { Cake } from '../model';
 import { MatDialog } from '@angular/material/dialog';
-import { CakeNewDialogComponent } from '../cake-new-dialog/cake-new-dialog.component';
+import { CakeFormComponent } from '../cake-form/cake-form.component';
 
 @Component({
   selector: 'app-cake-list',
@@ -13,7 +13,6 @@ export class CakeListComponent implements OnInit {
 
   cake: Cake = null;
   cakes: Cake[];
-
 
   constructor(
     private cakeService: CakeService,
@@ -30,6 +29,8 @@ export class CakeListComponent implements OnInit {
     });
   }
   openNewCakeDialog(){
-    this.dialog.open(CakeNewDialogComponent);
+    this.dialog.open(CakeFormComponent,{
+      data : {}
+    });
   }
 }

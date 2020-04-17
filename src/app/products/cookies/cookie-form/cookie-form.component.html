@@ -1,0 +1,43 @@
+<h3>{{headerTitle}}</h3>
+<div style="width: 300px;">
+  <form #cookieForm="ngForm" class="cookie-form ">
+    <div class="form-group">
+      <mat-form-field class="field-full-width">
+        <mat-label>Nazwa</mat-label>
+        <input matInput placeholder="Nazwa" [(ngModel)]="name" id="name" required name="name">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="field-full-width">
+        <mat-label>Opis</mat-label>
+        <textarea matInput placeholder="Opis" [(ngModel)]="description" id="description"  name="description"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="field-full-width">
+        <mat-label>Zdjęcie</mat-label>
+        <input matInput placeholder="Adres zdjęcia" [(ngModel)]="image" id="image"  name="image">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="field-full-width">
+        <mat-label>Cena</mat-label>
+        <input matInput placeholder="Cena" [(ngModel)]="price" id="price" required name="price" type="number">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <div class="cell d-inline p-2">
+        <button mat-raised-button mat-dialog-close >Anuluj</button>
+      </div>
+
+      <div class="cell d-inline p-2">
+        <button *ngIf="!isUpdate" mat-raised-button color="primary"  (click)="saveCookie()" [disabled]="!cookieForm.form.valid">Dodaj</button>
+ 
+      </div>
+      <div class="cell d-inline p-2">
+        <button *ngIf="isUpdate" mat-raised-button color="primary"  (click)="updateCookie()" [disabled]="!cookieForm.form.valid">Zapisz</button>
+ 
+      </div>
+    </div>
+    </form>
+</div>

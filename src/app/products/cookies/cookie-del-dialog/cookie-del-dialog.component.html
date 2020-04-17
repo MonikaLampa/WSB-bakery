@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <h3>Czy ma pewno chcesz usunąć :<b> {{data.name}}</b> ?</h3>
+  
+  </mat-dialog-content>
+  <mat-dialog-actions>
+  <div class="row">
+      <div class="col">
+          <button mat-raised-button mat-dialog-close>Anuluj</button>
+          <button mat-raised-button color="warn"  (click)="deleteCookie()">Usuń</button>
+      </div>
+  </div>
+  </mat-dialog-actions>

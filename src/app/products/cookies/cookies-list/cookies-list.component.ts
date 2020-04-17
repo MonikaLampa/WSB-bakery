@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookiesService } from '../cookies.service';
-import { Cookies } from '../model';
+import { Cookie } from '../model';
+import { CookieFormComponent } from '../cookie-form/cookie-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cookies-list',
@@ -9,10 +11,12 @@ import { Cookies } from '../model';
 })
 export class CookiesListComponent implements OnInit {
 
-  cookie: Cookies = null;
-  cookies: Cookies[];
+  cookie: Cookie = null;
+  cookies: Cookie[];
 
-  constructor(private cookiesService: CookiesService) { }
+  constructor(
+    private cookiesService: CookiesService,
+    private dialog : MatDialog) { }
 
   ngOnInit(): void {
     this.getCookies();
@@ -24,4 +28,9 @@ export class CookiesListComponent implements OnInit {
     })
   }
 
+  openCookieForm(){
+    this.dialog.open(CookieFormComponent,{
+      data : {}
+    });
+  }
 }

@@ -1,17 +1,23 @@
 
-<div class="card mb-3" style="max-width: 740px;">
+<div class="card mb-3" >
     <div class="row no-gutters">
         <div class="col-md-4">
             <img src="{{ cake.image }}" class="card-img" alt="">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{cake.name}}</h5>
+                <h1 class="card-title">{{cake.name}}</h1>
                 <p class="card-text">{{cake.description}}</p>
-                <p class="card-text">Cena : {{cake.price}} PLN</p>
-                <p class="card-text">Masa : {{cake.mass}} dag</p>
-               <button mat-raised-button color="primary" (click)="openDeleteDialog(cake)">Usuń</button>
-               <button mat-raised-button color="primary" (click)="openUpdateDialog(cake)">Edytuj</button>
+                <p class="card-text"><b>Cena :</b> {{cake.price}} PLN</p>
+                <p class="card-text"><b>Masa :</b> {{cake.mass}} dag</p>
+                <div class="row">
+                    <div class="cell d-inline p-2">
+                        <button mat-raised-button color="warn" (click)="openDeleteDialog(cake)">Usuń</button>
+                    </div>
+                    <div class="cell d-inline p-2">
+                        <button mat-raised-button color="primary" (click)="openUpdateDialog(cake)">Edytuj</button>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>

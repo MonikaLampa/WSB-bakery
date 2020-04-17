@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CakeNewFormComponent } from './cake-new-form.component';
+import { CakeFormComponent } from './cake-form.component';
 
 describe('CakeNewFormComponent', () => {
-  let component: CakeNewFormComponent;
-  let fixture: ComponentFixture<CakeNewFormComponent>;
+  let component: CakeFormComponent;
+  let fixture: ComponentFixture<CakeFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CakeNewFormComponent ]
+      declarations: [ CakeFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CakeNewFormComponent);
+    fixture = TestBed.createComponent(CakeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

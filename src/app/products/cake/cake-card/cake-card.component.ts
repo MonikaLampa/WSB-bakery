@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Cake } from '../model';
 import { MatDialog } from '@angular/material/dialog';
 import {CakeDelDialogComponent } from '../cake-del-dialog/cake-del-dialog.component';
-import { CakeNewFormComponent } from '../cake-new-form/cake-new-form.component';
+import { CakeFormComponent } from '../cake-form/cake-form.component';
 
 @Component({
   selector: 'app-cake-card',
@@ -25,8 +25,7 @@ export class CakeCardComponent implements OnInit {
   }
   
   openUpdateDialog(cake : Cake){
-    //console.log(`ciastko ` +JSON.stringify(cake));
-    this.dialog.open(CakeNewFormComponent, {
+    this.dialog.open(CakeFormComponent, {
       data: cake,
     }); 
     

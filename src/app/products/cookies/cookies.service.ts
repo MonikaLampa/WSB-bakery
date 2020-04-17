@@ -1,20 +1,32 @@
-import { Injectable } from '@angular/core';
-import { Cookies } from './model';
-import { Observable } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { Injectable } from "@angular/core";
+import { Cookie } from "./model";
+import { Observable } from "rxjs";
+import { AngularFireDatabase } from "@angular/fire/database";
+import { map } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CookiesService {
+  private API_URL = "/cookies";
+  constructor(private angFireDatabase: AngularFireDatabase) {}
 
-  private API_URL = "/cookies"
-  constructor(private angFireDatabase :AngularFireDatabase) { }
-
-  getCookies(): Observable<Cookies[]> {
-   
-    return  this.angFireDatabase.list<Cookies>(this.API_URL).valueChanges();
-   // .map(customers => customers.slice(0,this.config.customerLimit));
-
+  getCookies(): Observable<Cookie[]> {
+    return this.angFireDatabase
+      .list<Cookie>(this.API_URL)
+      .snapshotChanges()
+      .pipe(map((response) => response.map((cake) => this.assignKey(cake))));
+  }
+  private assignKey(cake) {
+    return { ...cake.payload.val(), key: cake.key };
+  }
+  deleteCookie(cookie: Cookie) {
+    return this.angFireDatabase.list<Cookie>(this.API_URL).remove(cookie.key);
+  }
+  addCookie(cookie: Cookie) {
+    return this.angFireDatabase.list<Cookie>(this.API_URL).push(cookie);
+  }
+  updateCookie(key: string, cookie: Cookie) {
+    return this.angFireDatabase.list<Cookie>(this.API_URL).update(key, cookie);
   }
 }
