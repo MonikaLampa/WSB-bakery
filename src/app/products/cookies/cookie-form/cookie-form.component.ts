@@ -3,6 +3,7 @@ import { Cookie } from '../model';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CookiesService } from '../cookies.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: "app-cookie-form",
@@ -29,6 +30,10 @@ export class CookieFormComponent implements OnInit {
       this.setCookieUpdateProperty();
     } 
   }
+  submitForm(form:NgForm){
+    if(this.isUpdate) this.updateCookie();
+    else this.addCookie(form); 
+  }
   private setCookieUpdateProperty() {
     this.headerTitle = "Edytuj ciasteczko";
     this.description = this.data.description;
@@ -37,7 +42,7 @@ export class CookieFormComponent implements OnInit {
     this.price = this.data.price;
   }
 
-  saveCookie() {
+  addCookie(form:NgForm) {
     this.cookieService
       .addCookie({
         name: this.name,
@@ -49,7 +54,8 @@ export class CookieFormComponent implements OnInit {
         this.onCreatingSuccess.bind(this),
         this.onCreatingFailure.bind(this)
       );
-    this.dialogRef.close();
+      form.resetForm();
+   // this.dialogRef.close();
   }
 
   updateCookie() {

@@ -1,6 +1,8 @@
-<h3>{{headerTitle}}</h3>
-<div style="width: 300px;">
-  <form #cookieForm="ngForm" class="cookie-form ">
+<div>
+  <div class="titleHeader">
+    <h3 class="text-center">{{headerTitle}}</h3>
+  </div>
+  <form #cookieForm="ngForm" class="cookie-form" (ngSubmit)="submitForm(cookieForm)" >
     <div class="form-group">
       <mat-form-field class="field-full-width">
         <mat-label>Nazwa</mat-label>
@@ -10,7 +12,8 @@
     <div class="form-group">
       <mat-form-field class="field-full-width">
         <mat-label>Opis</mat-label>
-        <textarea matInput placeholder="Opis" [(ngModel)]="description" id="description"  name="description"></textarea>
+        <textarea matInput  cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
+        cdkAutosizeMaxRows="15" placeholder="Opis" [(ngModel)]="description" id="description"  name="description"></textarea>
       </mat-form-field>
     </div>
     <div class="form-group">
@@ -27,16 +30,13 @@
     </div>
     <div class="row">
       <div class="cell d-inline p-2">
-        <button mat-raised-button mat-dialog-close >Anuluj</button>
-      </div>
-
-      <div class="cell d-inline p-2">
-        <button *ngIf="!isUpdate" mat-raised-button color="primary"  (click)="saveCookie()" [disabled]="!cookieForm.form.valid">Dodaj</button>
- 
+        <button mat-raised-button mat-dialog-close >Zamknij</button>
       </div>
       <div class="cell d-inline p-2">
-        <button *ngIf="isUpdate" mat-raised-button color="primary"  (click)="updateCookie()" [disabled]="!cookieForm.form.valid">Zapisz</button>
- 
+        <button type="submit" mat-raised-button color="primary"  [disabled]="!cookieForm.form.valid">Zapisz</button>
+      </div>
+      <div class="cell d-inline p-2">
+        <button type="button" mat-raised-button color="warn" (click) = "cookieForm.resetForm()" [disabled]="!cookieForm.dirty">Resetuj</button>
       </div>
     </div>
     </form>

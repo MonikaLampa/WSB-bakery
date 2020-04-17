@@ -15,7 +15,7 @@ const MAT_SNACK_BAR_GLOBAL_CONFIG: MatSnackBarConfig = {
 };
 
 const MAT_DIALOG_GLOBAL_CONFIG: MatDialogConfig= {
-  width:'700px',
+  width:'500px',
   disableClose: true,
   hasBackdrop: true
 };

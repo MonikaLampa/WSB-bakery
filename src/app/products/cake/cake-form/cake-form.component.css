@@ -1,12 +1,19 @@
 .cake-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 .field-full-width {
-    width: 100%;
-  }
-  h3{
-    font-size: large;
-      font-weight: bold;
-  }
+  width: 100%;
+}
+h3 {
+  font-size: 20px;
+  padding: 2px;
+  color:white
+}
+.titleHeader
+{
+  display: block;
+  width:auto;
+  background-color: #7B1FA2;
+}

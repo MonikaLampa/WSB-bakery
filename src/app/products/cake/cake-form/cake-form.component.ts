@@ -3,6 +3,7 @@ import { Cake } from "../model";
 import { CakeService } from "../cake.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-cake-form",
@@ -16,7 +17,7 @@ export class CakeFormComponent implements OnInit {
   name: string;
   price: number;
   headerTitle: string = "Dodaj nowy tort";
-  isUpdate:boolean = false;
+  isUpdate: boolean = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Cake,
@@ -29,10 +30,18 @@ export class CakeFormComponent implements OnInit {
     if (this.data.hasOwnProperty("name")) {
       this.isUpdate = true;
       this.setCakeUpdateProperty();
-    } 
+    }
   }
 
-  saveCake() {
+  submitForm(form: NgForm) {
+    if (this.isUpdate) this.updateCake();
+    else {
+      this.addCake();
+      form.resetForm();
+    }
+  }
+
+  addCake() {
     this.cakeService
       .addCake({
         name: this.name,
@@ -45,12 +54,13 @@ export class CakeFormComponent implements OnInit {
         this.onCreatingSuccess.bind(this),
         this.onCreatingFailure.bind(this)
       );
-    this.dialogRef.close();
+    // format.resetForm();
+    // this.dialogRef.close();
   }
 
   updateCake() {
     this.cakeService
-      .updateCake(this.data.key,{
+      .updateCake(this.data.key, {
         name: this.name,
         description: this.description,
         image: this.image,
