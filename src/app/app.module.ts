@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { MainComponent } from './main/main.component';
 import { ProductsModule } from './products/products.module';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 //import 'firebase/database'
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
