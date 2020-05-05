@@ -5,6 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AuthService } from './auth.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AuthService } from './auth.service';
   imports: [
     CommonModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
     
   ],
   exports:[

@@ -13,7 +13,7 @@
         <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cake">Torty</a>
       </li>
     </ul>
-    <button  mat-raised-button color="basic" *ngIf="!isLogin" class="mybtn" (click)="login()"> Zaloguj</button>
-    <button  mat-raised-button color="basic" *ngIf="isLogin" class="mybtn" (click)="logout()"> Wyloguj</button>
+    <button  mat-raised-button color="basic" *ngIf="!isLogin" appBacklight (click)="login()"> Zaloguj</button>
+    <button  mat-raised-button color="basic" *ngIf="isLogin" appBacklight (click)="logout()"> Wyloguj</button>
   </div>
 </nav>

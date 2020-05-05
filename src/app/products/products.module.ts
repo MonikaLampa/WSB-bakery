@@ -12,6 +12,7 @@ import { CakeFormComponent } from "./cake/cake-form/cake-form.component";
 import { FormsModule } from "@angular/forms";
 import { CookieFormComponent } from './cookies/cookie-form/cookie-form.component';
 import { CookieDelDialogComponent } from './cookies/cookie-del-dialog/cookie-del-dialog.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { CookieDelDialogComponent } from './cookies/cookie-del-dialog/cookie-del
     CookieFormComponent,
     CookieDelDialogComponent,
   ],
-  imports: [CommonModule, CoreModule, FormsModule],
+  imports: [CommonModule, CoreModule, FormsModule,SharedModule],
   providers: [CakeService, CookiesService],
 })
 export class ProductsModule {}
